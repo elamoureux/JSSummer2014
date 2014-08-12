@@ -30,8 +30,10 @@ and open the template in the editor.
             
             function trackMouse(e) {
                 data.mouseX.push(e.clientX);
+                console.log(e.clientX);
             }
             
+            document.addEventListener('mousemove', trackMouse);
             
         </script>
     </body>
