@@ -13,13 +13,19 @@ and open the template in the editor.
     <body>
         <div>TODO write content</div>
         
-        <input type="button" value='submit' onclick="submitForm();" />
+        <input type="button" id="btn" value='submit' />
         
         <script type="text/javascript">
+            var submitBtn = document.getElementById('btn');
+                 submitBtn.addEventListener('click', call1);
+                 submitBtn.addEventListener('click', call2);
             
-            function submitForm(){
-                console.log('submitted');
-            }
+           function call1(e){
+               console.log(e);
+           }
+           function call2(){
+               console.log('call 2');
+           }
             
             var data = {
             
