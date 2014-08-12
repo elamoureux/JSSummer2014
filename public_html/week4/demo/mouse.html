@@ -16,14 +16,22 @@ and open the template in the editor.
         
         <script type="text/javascript" >
             
+            var email = document.getElementById('email');
+                email.addEventListener('blur', saveEmail);
+            
+            function saveEmail(){
+                data.email = email.value;
+            }
+            
             var data = {
                 "mouseX" : [],
-                "email" : value
+                "email" : ''
             }
             
             function trackMouse(e) {
                 data.mouseX.push(e.clientX);
             }
+            
             
         </script>
     </body>
