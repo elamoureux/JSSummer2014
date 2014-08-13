@@ -20,24 +20,29 @@ var ads = [];
 // Pushing items into the arrays                         
 ads.push({ 
     "title": 'this is the title, part 1', 
-    "desc" : 'this is the description, part 1' 
+    "desc" : 'this is the description, part 1',
+    "color" : "#"+((1<<24)*Math.random()|0).toString(16)
 });
 ads.push({ 
     "title": 'title part 2', 
-    "desc" : 'description part 2' 
+    "desc" : 'description part 2',
+    "color" : "#"+((1<<24)*Math.random()|0).toString(16)
 });
 ads.push({ 
     "title": 'title part 3', 
-    "desc" : 'description part 3' 
+    "desc" : 'description part 3',
+    "color" : "#"+((1<<24)*Math.random()|0).toString(16)
 });
 ads.push({ 
     "title": 'title part 4', 
-    "desc" : 'description part 4' 
+    "desc" : 'description part 4',
+    "color" : "#"+((1<<24)*Math.random()|0).toString(16)
 });
 
 ads.push({ 
     "title": 'title part 5', 
-    "desc" : 'description part 5' 
+    "desc" : 'description part 5' ,
+    "color" : "#"+((1<<24)*Math.random()|0).toString(16)
 });
 
 //Function to determine random ad index
@@ -45,13 +50,17 @@ function rand( max ){
     return Math.floor( Math.random()*max );
     
 }
+
 var result = rand(ads.length);
+//console.log(result.title);
+//console.log(result.desc);
 
 var div = document.getElementById('ad');
-div.innerHTML = '<p> wow it changed</p>';
+div.innerHTML = ads[result].desc;
+div.style.color = ads[result].color;
 
 function changeDocumentTitle( title ){
-    document.title = title;
+    document.title = title + '...';
 }
-changeDocumentTitle(result + '...');
+changeDocumentTitle(ads[result].title);
 
