@@ -14,28 +14,44 @@ Requirements:
 
  */
 
-// 
+// Defining variables
 var ads = [];
              
-                         
+// Pushing items into the arrays                         
 ads.push({ 
-    "title": 'this is cool1', 
-    "desc" : 'this is cool1 because I can use it' 
+    "title": 'this is the title, part 1', 
+    "desc" : 'this is the description, part 1' 
 });
 ads.push({ 
-    "title": 'this is cool2', 
-    "desc" : 'this is cool2 because I can use it' 
+    "title": 'title part 2', 
+    "desc" : 'description part 2' 
 });
 ads.push({ 
-    "title": 'this is cool1', 
-    "desc" : 'this is cool1 because I can use it' 
+    "title": 'title part 3', 
+    "desc" : 'description part 3' 
 });
 ads.push({ 
-    "title": 'this is cool2', 
-    "desc" : 'this is cool2 because I can use it' 
+    "title": 'title part 4', 
+    "desc" : 'description part 4' 
 });
 
 ads.push({ 
-    "title": 'this is cool2', 
-    "desc" : 'this is cool2 because I can use it' 
+    "title": 'title part 5', 
+    "desc" : 'description part 5' 
 });
+
+//Function to determine random ad index
+function rand( max ){
+    return Math.floor( Math.random()*max );
+    
+}
+var result = rand(ads.length);
+
+var div = document.getElementById('ad');
+div.innerHTML = '<p> wow it changed</p>';
+
+function changeDocumentTitle( title ){
+    document.title = title;
+}
+changeDocumentTitle(result + '...');
+
