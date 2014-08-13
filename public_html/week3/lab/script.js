@@ -51,14 +51,18 @@ function rand( max ){
     
 }
 
+//Controlling the variable
 var result = rand(ads.length);
 //console.log(result.title);
 //console.log(result.desc);
 
+//Changing the inside of the HTML document by displaying what is inside the array
 var div = document.getElementById('ad');
 div.innerHTML = ads[result].desc;
 div.style.color = ads[result].color;
 
+
+//Function to change the title of the page
 function changeDocumentTitle( title ){
     document.title = title + '...';
 }
