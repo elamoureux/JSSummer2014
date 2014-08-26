@@ -10,28 +10,35 @@
     
     var fullname = document.getElementById("name");
     var fullnameErr = document.getElementById("err_name");
+    var email = document.getElementById("email");
+    var emailErr = document.getElementById("err_email");
+    var comments = document.getElementById("comments");
+    var commentsErr = document.getElementById("err_comments");
     
     var hasErrors = false;
     
-    
-    if ( fullname.value.length > 0 && fullname.value.length < 150) {
+    if ( fullname.value.length ) {
         fullname.classList.remove('bad');
         fullname.classList.add('good');        
         fullnameErr.innerHTML = '';
-
+        
     } else {
         hasErrors = true;
         fullname.classList.remove('good');
         fullname.classList.add('bad');       
         fullnameErr.innerHTML = "<p>Full Name is not valid.</p>";       
     }
-
-      
     
-}/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+    if (email.value.length){
+        email.classList.remove('bad');
+        email.classList.add('good');
+        email.innerHTML = '';
+    }
+    else {
+        hasErrors = true;
+        email.classList.remove('good');
+        email.classList.add('bad');
+        emailErr.innerHTML = "<p>Email is not valid length.<p>";
+    }
+    
+}
