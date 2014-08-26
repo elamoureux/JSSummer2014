@@ -32,7 +32,7 @@
     if (email.value.length){
         email.classList.remove('bad');
         email.classList.add('good');
-        email.innerHTML = '';
+        emailErr.innerHTML = '';
     }
     else {
         hasErrors = true;
@@ -44,7 +44,7 @@
     if (comments.value.length > 0 && comments.value.length < 150) {
         comments.classList.remove('bad');
         comments.classList.add('good');
-        comments.innerHTML = '';
+        commentsErr.innerHTML = '';
     }
     else {
         hasErrors = true;
