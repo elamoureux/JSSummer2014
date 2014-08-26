@@ -14,7 +14,7 @@
     var hasErrors = false;
     
     
-    if ( fullname.value.length < 150) {
+    if ( fullname.value.length > 0 && fullname.value.length < 150) {
         fullname.classList.remove('bad');
         fullname.classList.add('good');        
         fullnameErr.innerHTML = '';
