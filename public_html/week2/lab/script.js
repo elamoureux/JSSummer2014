@@ -41,4 +41,16 @@
         emailErr.innerHTML = "<p>Email is not valid length.<p>";
     }
     
+    if (comments.value.length < 0 && comments.value.length > 150) {
+        comments.classList.remove('bad');
+        comments.classList.add('good');
+        comments.innerHTML = '';
+    }
+    else {
+        hasErrors = true;
+        comments.classList.remove('good');
+        comments.classList.add('bad');
+        commentsErr.innerHTML = "<p>Comments are not valid length.<p>";
+    }
+    
 }
