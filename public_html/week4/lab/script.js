@@ -51,8 +51,28 @@ function saveName() {
     userdata.name = fname.value;
 }
 
+function saveHeight(){
+    userdata.height = height.value;
+}
+
+function saveWidth(){
+    userdata.width = width.value;
+}
+
+function saveUserName(){
+    userdata.user = user.value;
+}
+
+function saveTitle(){
+    userdata.title = title.value;
+}
+
 email.addEventListener("blur", saveEmail);
 fname.addEventListener("blur", saveName);
+height.addEventListener("load", saveHeight);
+width.addEventListener("load", saveWidth);
+user.addEventListener("load", saveUserName);
+title.addEventListener("load", saveTitle);
 
 function showResults() {
     console.clear();
