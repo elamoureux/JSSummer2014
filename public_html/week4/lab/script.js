@@ -26,7 +26,33 @@ mouse cords into the array.
  */
 
 
-var userdata = {};
+var userdata = {
+    
+    "email": '',
+    "name" : '',
+    "height" : '',
+    "width" : '',
+    "user" : '',
+    "title" : ''
+};
+
+var email = document.getElementById("email");
+var fname = document.getElementById("fullname");
+var height = document.getElementById("window.innerHeight");
+var width = document.getElementById("window.innerWidth");
+var user = document.getElementById("window.navigator.userAgent");
+var title = document.getElementById("document.title");
+
+function saveEmail() {
+    userdata.email = email.value;
+}
+
+function saveName() {
+    userdata.name = fname.value;
+}
+
+email.addEventListener("blur", saveEmail);
+fname.addEventListener("blur", saveName);
 
 function showResults() {
     console.clear();
