@@ -1,38 +1,43 @@
-/* 
- *We need to collect some data from the user. 
- *Please collect the following data. User input from email field 
- *and name field.  User Screen size, Browser information, page title. 
- * Collect the first 100 mouse coordinates the user makes on the page.
- * 
- * 
-1.  Create a Json that will collect all this data. It’s as simple as a key:value pair.
-2. Collect the user input value when they blur on the field
-    a. Email
-    b. User name
-3. The user screen size, user agent and page title can be collected when 
-the window loads.
-    a. window.innerHeight
-    b. window. innerWidth
-    c. window. navigator. userAgent
-    d. document.title
-4. Collect the user mouse cords by putting them into an array when the 
-user moves there mouse on the document. One for the mouseX, and one for 
-the mouseY.  Once the Array has a length of 100 you can stop pushing the 
-mouse cords into the array.
-    a. e.clientX
-    b. e.clientY
-    c. jsonVariable.ArrayVariable.push(e.clientX) (Do not name your variables this sample)
+/*
+ Let’s revisit form validation from week 2. 
+ You will use your same form but create some new JavaScript. 
+ 
+1. In your HTML make a fname and lname fields.
+2. Using regular expression to validate your form.
+    a. Full name must be a SpaceAlphaValidate, only characters and spaces allowed
+    b. Email must start with characters, have a @ symbol, have another set 
+       of characters have a period and end with 3 characters.
+    c. Comments must not have any html.  Search for characters that have <> 
+       wrapped around it.
+
+3.  Once all the data is valid hide the form using [object].style.display='none'
+    Display a div that will show the data entered.  You can add a div to the page
+    and have it display:none to start.
+    div.style.display = 'block';
 
  */
 
 
-var userdata = {};
-
-function showResults() {
-    console.clear();
-    console.log(userdata);
+function SpaceAlphaValidate( str ) {
+        var alphaRegex = /[a-zA-Z ]+/;
+        return alphaRegex.test(str);			
 }
 
-var results = document.getElementById('showResults');
+function strip_HTML(str) {
+        var findHtml = /<(.|\n)*?>/gi;
+        return str.replace(findHtml,"");
+}
 
-results.addEventListener("click", showResults);
+function submitform() {
+			
+        var fname = document.getElementById('fname');
+
+        if ( !fname.value.length ) {
+                console.log("Fname needs a length");
+        } else if ( SpaceAlphaValidate( fname.value ) === false ) {
+                console.log("Fname needs Alpha chars");
+        } else {
+                console.log("Fname is good");
+        }
+
+}
