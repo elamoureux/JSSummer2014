@@ -38,10 +38,7 @@ var userdata = {
 
 var email = document.getElementById("email");
 var fname = document.getElementById("fullname");
-var height = document.getElementById("window.innerHeight");
-var width = document.getElementById("window.innerWidth");
-var user = document.getElementById("window.navigator.userAgent");
-var title = document.getElementById("document.title");
+
 
 function saveEmail() {
     userdata.email = email.value;
@@ -52,27 +49,24 @@ function saveName() {
 }
 
 function saveHeight(){
-    userdata.height = height.value;
+    userdata.height = window.innerHeight;
 }
 
 function saveWidth(){
-    userdata.width = width.value;
+    userdata.width = window.innerWidth;
 }
 
 function saveUserName(){
-    userdata.user = user.value;
+    userdata.user = window. navigator. userAgent;
 }
 
 function saveTitle(){
-    userdata.title = title.value;
+    userdata.title = document.title;
 }
 
 email.addEventListener("blur", saveEmail);
 fname.addEventListener("blur", saveName);
-height.addEventListener("load", saveHeight);
-width.addEventListener("load", saveWidth);
-user.addEventListener("load", saveUserName);
-title.addEventListener("load", saveTitle);
+
 
 function showResults() {
     console.clear();
