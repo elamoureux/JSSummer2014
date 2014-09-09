@@ -67,14 +67,14 @@ function saveTitle(){
 }
 
 function trackMouseX(e) {
-                data.mouseX.push(e.clientX);
-                console.log(e.clientX);
-            }
+    userdata.mouseX.push(e.clientX);
+    console.log(e.clientX);
+}
             
 function trackMouseY(e) {
-                data.mouseY.push(e.clientY);
-                console.log(e.clientY);
-            }            
+    userdata.mouseY.push(e.clientY);
+    console.log(e.clientY);
+}            
 
 email.addEventListener("blur", saveEmail);
 fname.addEventListener("blur", saveName);
