@@ -33,7 +33,9 @@ var userdata = {
     "height" : '',
     "width" : '',
     "user" : '',
-    "title" : ''
+    "title" : '',
+    "mouseX": [],
+    "mouseY": []
 };
 
 var email = document.getElementById("email");
@@ -64,8 +66,24 @@ function saveTitle(){
     userdata.title = document.title;
 }
 
+function trackMouseX(e) {
+                data.mouseX.push(e.clientX);
+                console.log(e.clientX);
+            }
+            
+function trackMouseY(e) {
+                data.mouseY.push(e.clientY);
+                console.log(e.clientY);
+            }            
+
 email.addEventListener("blur", saveEmail);
 fname.addEventListener("blur", saveName);
+window.addEventListener("load", saveHeight);
+window.addEventListener("load", saveWidth);
+window.addEventListener("load", saveUserName);
+window.addEventListener("load", saveTitle);
+document.addEventListener('mousemove', trackMouseX);
+document.addEventListener('mousemove', trackMouseY);
 
 
 function showResults() {
