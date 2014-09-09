@@ -68,12 +68,10 @@ function saveTitle(){
 
 function trackMouseX(e) {
     userdata.mouseX.push(e.clientX);
-    console.log(e.clientX);
 }
             
 function trackMouseY(e) {
     userdata.mouseY.push(e.clientY);
-    console.log(e.clientY);
 }            
 
 email.addEventListener("blur", saveEmail);
