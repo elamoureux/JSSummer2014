@@ -15,11 +15,19 @@ and open the template in the editor.
         
         <script type="text/javascript">
         
-        var clock;
+        var clock = document.getElementById('clock');
         var clockTimer = setTimeout(updateClock, 1000);
+        var update = setTimeout (updateClock, 100);
+        
+        
         
         function updateClock(){
-            new Date();
+            //new Date();
+            
+            update = new Date();
+            clock.innerHTML = new Date();
+            
+            setTimeout (updateClock, 100);
         }
         
         </script>
