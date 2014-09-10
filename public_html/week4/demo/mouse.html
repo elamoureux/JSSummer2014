@@ -8,33 +8,41 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
         <div>TODO write content</div>
-        <input type="text" id="email" value=""/>
         
-        <script type="text/javascript" >
-            
+        <input type="text" id="email" value="" />
+        
+        
+        <script type="text/javascript">
             var email = document.getElementById('email');
                 email.addEventListener('blur', saveEmail);
-            
-            function saveEmail(){
-                data.email = email.value;
+            function saveEmail() {
+                data.email =  email.value;
             }
             
             var data = {
-                "mouseX" : [],
-                "email" : ''
-            }
+              "mouseX" : [],
+              "email" : ''
+            };
             
             function trackMouse(e) {
                 data.mouseX.push(e.clientX);
                 console.log(e.clientX);
+                
+                if ( data.mouseX.length > 100 ) {
+                    document.removeEventListener('mousemove', trackMouse);
+                }
+                
             }
+            
             
             document.addEventListener('mousemove', trackMouse);
             
+            
         </script>
+        
     </body>
 </html>

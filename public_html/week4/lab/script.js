@@ -67,11 +67,17 @@ function saveTitle(){
 }
 
 function trackMouseX(e) {
-    userdata.mouseX.push(e.clientX);
+    userdata.mouseX.push(e.clientX);  
+    if ( userdata.mouseX.length > 100 ) {
+        document.removeEventListener('mousemove', trackMouseX);
+    }
 }
             
 function trackMouseY(e) {
     userdata.mouseY.push(e.clientY);
+    if ( userdata.mouseY.length > 100 ) {
+        document.removeEventListener('mousemove', trackMouseY);
+    }
 }            
 
 email.addEventListener("blur", saveEmail);
