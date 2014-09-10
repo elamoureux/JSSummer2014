@@ -22,7 +22,7 @@ function emailValidate (str){
 }
 
 function SpaceAlphaValidate( str ) {
-        var alphaRegex = /[a-zA-Z ]+/;
+        var alphaRegex = /^[a-zA-Z ]+$/;
         return alphaRegex.test(str);			
 }
 
@@ -106,4 +106,12 @@ function submitform() {
         commentsErr.innerHTML = "<p>Comments are not valid length.<p>";
     }			
        
+    if (hasErrors === false){
+        var contentForm = document.getElementById('mainform');
+        contentForm.style.display = 'none';
+        
+        var result = document.getElementById('result');
+        var resultString = '<p> First Name :' + firstName.value + '</p>'+ '<p> Last Name : ' + lastName.value + '</p>' + '<p> Email : ' + email.value + '</p>' + '<p> Comments : ' + comments.value + '</p>';
+        result.innerHTML = resultString;
+    }
 }
