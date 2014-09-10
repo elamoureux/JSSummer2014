@@ -21,6 +21,7 @@
 
 		 //http://canvas.site40.net/demopage.html	
 		// XML HTTP Request
+  
 		var xhr = new XMLHttpRequest();
 		var content = document.getElementById('content');  
 		var showResults = document.getElementById('showResults');  
@@ -29,6 +30,7 @@
 		
                 showResults.addEventListener('click',makeAJAXCall);
 		
+                //allowing native code to transform into JavaScript
 		function callback() {
 			var response = xhr.responseText;  
 						
@@ -39,6 +41,7 @@
 		}
 		
 		
+                //applied when the ready state of the document has changed
 		xhr.onreadystatechange = function() { 
 									
 		   if (xhr.readyState==4 && xhr.status==200) {  
@@ -47,6 +50,7 @@
 		};  
 		
 		
+                //calls AJAX
                 function makeAJAXCall(){
                     if ( step < 5 ) {                      
                         xhr.open('GET', url+step, true);  
@@ -58,7 +62,7 @@
                 
 		window.addEventListener('load', makeAJAXCall);
 
-
+                //checks where you are on the screen    
                 function scrollCheck() {
 			if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {				
 				makeAJAXCall();
