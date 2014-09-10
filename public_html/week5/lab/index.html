@@ -14,9 +14,13 @@
 	<fieldset>
 		<legend>Personal information:</legend>		
 
-                <label for="name">Name:</label> 
-                <input id="name" name="name" type="text" size="30" placeholder="Full name" /> 
-                <span class="error" id="err_name"></span> <br /><br />
+                <label for="firstname">First Name:</label> 
+                <input id="firstname" name="firstname" type="text" size="30" placeholder="First name" /> 
+                <span class="error" id="err_firstname"></span> <br /><br />
+                
+                <label for="lastname">Last Name:</label> 
+                <input id="lastname" name="lastname" type="text" size="30" placeholder="Last name" /> 
+                <span class="error" id="err_lastname"></span> <br /><br />
 
                 <label for="email">E-mail:</label> 
                 <input id="email" name="email" type="text" size="30" placeholder="sample@email.com"  /> 
@@ -26,7 +30,7 @@
                 <textarea id="comments" name="comments"></textarea> 
                 <span class="error" id="err_comments"></span> <br /><br />
 
-		<input type="button" value="submit" onclick="submitForm();" />
+		<input type="button" value="submit" onclick="submitform();" />
             </fieldset>
          </div>
     </form>

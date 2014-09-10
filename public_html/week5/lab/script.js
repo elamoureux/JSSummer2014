@@ -92,6 +92,8 @@ function submitform() {
         emailErr.innerHTML = '';
     }
     
+    comments.value = strip_HTML(comments.value);
+    
     if (comments.value.length > 0 && comments.value.length < 150) {
         comments.classList.remove('bad');
         comments.classList.add('good');
@@ -104,21 +106,4 @@ function submitform() {
         commentsErr.innerHTML = "<p>Comments are not valid length.<p>";
     }			
        
-     /*   
-        var email = document.getElementById('email');
-        
-        if (!email.value.length){
-            console.log("Email needs a length");
-        } else if (emailValidate (email.value )=== false){
-            console.log("Email needs character, an @ symbol, and at least one period");
-        }else {
-            console.log ("Email is good");
-        }
-
-        var comments = document.getElementById('comments');
-        
-        if (!comments.value.length){
-            console.log("Comments are required");
-        } else if ( )
-        } */
 }
