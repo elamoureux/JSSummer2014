@@ -96,6 +96,24 @@
                 ctx.fillText= ("Ford", 150, can.height-10);
             }
             
+            function growRect(){
+                drawClear();
+                if(h< 300){
+                    h+= 20;
+                    ctx.fillRect(x, y-h, 50, h);
+                    setTimeout(growRect, 100);
+                } else {
+                    moveRect();
+                }
+            }
+            
+            growRect();
+            
+           function moveRect()[
+               ctx.fillRect(x,y-h,50,h);
+               
+           ]
+            
             line.addEventListener('click', drawLine);
             diagline.addEventListener('click', drawDiagLine);
             Clear.addEventListener('click', drawClear);

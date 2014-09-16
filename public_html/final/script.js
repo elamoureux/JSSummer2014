@@ -13,48 +13,37 @@ function strip_HTML(str) {
         return str.replace(findHtml,"");
 }
 
+function phoneValidate (str){
+    var phoneRegex = /^[2-9]\d{2}-\d{3}-\d{4}$/; //stackoverflow help
+    return phoneRegex.test(str);
+}
+
 function submitform() {
-    var firstName = document.getElementById("firstname");
-    var firstNameErr = document.getElementById("err_firstname");
-    var lastName = document.getElementById("lastname");
-    var lastNameErr = document.getElementById("err_lastname");
+    var fullName = document.getElementById("fullname");
+    var fullNameErr = document.getElementById("err_fullname");
     var email = document.getElementById("email");
     var emailErr = document.getElementById("err_email");
     var comments = document.getElementById("comments");
     var commentsErr = document.getElementById("err_comments");
+    var phone = document.getElementById("phone");
+    var phoneErr = document.getElementById("err_phone");
     
     var hasErrors = false;
     
-    if ( !firstName.value.length ) {
+    if ( !fullName.value.length ) {
         hasErrors = true;
-        firstName.classList.remove('good');
-        firstName.classList.add('bad');       
-        firstNameErr.innerHTML = "<p>First name must be entered.</p>";     
-    } else if( SpaceAlphaValidate( firstName.value ) === false){
+        fullName.classList.remove('good');
+        fullName.classList.add('bad');       
+        fullNameErr.innerHTML = "<p>Full name must be entered.</p>";     
+    } else if( SpaceAlphaValidate( fullName.value ) === false){
         hasErrors = true;
-        firstName.classList.remove('good');
-        firstName.classList.add('bad');       
-        firstNameErr.innerHTML = "<p>First name entered is not correct in character format.</p>";
+        fullName.classList.remove('good');
+        fullName.classList.add('bad');       
+        fullNameErr.innerHTML = "<p>First name entered is not correct in character format.</p>";
     }else {
-        firstName.classList.remove('bad');
-        firstName.classList.add('good');        
-        firstNameErr.innerHTML = '';      
-    }
-  
-    if ( !lastName.value.length ) {
-        hasErrors = true;
-        lastName.classList.remove('good');
-        lastName.classList.add('bad');       
-        lastNameErr.innerHTML = "<p>First name must be entered.</p>";     
-    } else if( SpaceAlphaValidate( lastName.value ) === false){
-        hasErrors = true;
-        lastName.classList.remove('good');
-        lastName.classList.add('bad');       
-        lastNameErr.innerHTML = "<p>First name entered is not correct in character format.</p>";
-    }else {
-        lastName.classList.remove('bad');
-        lastName.classList.add('good');        
-        lastNameErr.innerHTML = '';      
+        fullName.classList.remove('bad');
+        fullName.classList.add('good');        
+        fullNameErr.innerHTML = '';      
     }
     
     if (!email.value.length){
@@ -72,6 +61,23 @@ function submitform() {
         email.classList.remove('bad');
         email.classList.add('good');
         emailErr.innerHTML = '';
+    }
+    
+    if (!phone.value.length){
+        hasErrors = true;
+        phone.classList.remove('good');
+        phone.classList.add('bad');
+        phoneErr.innerHTML = "<p>Phone number is not valid length.<p>";      
+    } else if (phoneValidate (phone.value) === false){
+        hasErrors = true;
+        phone.classList.remove('good');
+        phone.classList.add('bad');
+        phoneErr.innerHTML = "<p>Phone number is not correct format.<p>"; 
+    }
+    else {
+        phone.classList.remove('bad');
+        phone.classList.add('good');
+        phoneErr.innerHTML = '';
     }
     
     comments.value = strip_HTML(comments.value);
@@ -93,7 +99,7 @@ function submitform() {
         contentForm.style.display = 'none';
         
         var result = document.getElementById('result');
-        var resultString = '<p> First Name :' + firstName.value + '</p>'+ '<p> Last Name : ' + lastName.value + '</p>' + '<p> Email : ' + email.value + '</p>' + '<p> Comments : ' + comments.value + '</p>';
+        var resultString = '<p> Full Name :' + fullName.value +'</p>' + '<p> Email : ' + email.value + '</p>' + '<p> Phone Number : '+ phone.value + '</p>' + '<p> Comments : ' + comments.value + '</p>';
         result.innerHTML = resultString;
     }
 }
