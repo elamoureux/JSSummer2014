@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Lab 8</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="content">MOVE ME</div>
+        <button id="fadein">Fade In</button>
+        <button id="fadeout">Fade Out</button>
+        <button id="movediv">Move Div</button>
+        
+        <script type="text/javascript">        
+         
+         alert('Welcome to Lab 8.');
+         
+         var element = document.getElementById('content');
+         var fadeIn = document.getElementById('fadein');
+         var fadeOut = document.getElementById('fadeout');
+         var moveDiv = document.getElementById('movediv');
+         
+         fadeOut.addEventListener('click', fadeOutTimer);
+         fadeIn.addEventListener('click', fadeInTimer);
+         moveDiv.addEventListener('click', moveLeftFunction);
+                  
+         var fading = 100;
+         var fadeTimer;
+         var divPosition = 10;
+         
+         function fadeOutFunction(){
+             fading = fading - 10;
+             element.style.opacity = fading/100;
+             
+             console.log ('Fade Out Function called');
+             
+             if (fading <= 0){
+                 clearInterval (fadeTimer);
+             }
+         }
+         
+         function fadeOutButton(){
+             setInterval (fadeOutFunction, 100);
+         }
+         
+         function fadeOutTimer(){
+             clearInterval (fadeTimer);
+             
+             fading = 100;
+             fadeTimer = setInterval(fadeOutFunction, 100);
+             
+             console.log('Fade Out Timer Started');
+         }
+         
+         function fadeInFunction(){
+             fading = fading + 10;
+             element.style.opacity = fading/100;
+             
+             console.log ('Fade In function Clicked');
+             
+             if (fading >= 100){
+                 clearInterval (fadeTimer);
+             }
+         }
+         
+         function fadeInButton(){
+             setInterval (fadeInFunction, 0);
+         }
+         
+         function fadeInTimer(){
+             clearInterval (fadeTimer);
+             
+             fading = 0;
+             fadeTimer = setInterval(fadeInFunction, 100);
+             
+             console.log('Fade In Timer Started');
+         } 
+         
+         function moveLeftFunction(){
+             
+             divPosition = divPosition + 10;
+             element.style.left = divPosition + "px";
+             
+         }
+        </script>
+    </body>
+</html>
