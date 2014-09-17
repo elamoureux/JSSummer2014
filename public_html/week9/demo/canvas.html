@@ -109,10 +109,12 @@
             
             growRect();
             
-           function moveRect()[
+           function moveRect(){
                ctx.fillRect(x,y-h,50,h);
                
-           ]
+            }
+            
+            moveRect();
             
             line.addEventListener('click', drawLine);
             diagline.addEventListener('click', drawDiagLine);

@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Elizabeth Lamoureux
+Lab 8 Submission
 -->
 <html>
     <head>
         <title>Lab 8</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #content {
+                position:absolute;
+            }
+        </style>
     </head>
     <body>
-        <div id="content">MOVE ME</div>
+        
+        <div id="content">MOVE ME</div><br /><br /><br />
         <button id="fadein">Fade In</button>
         <button id="fadeout">Fade Out</button>
         <button id="movediv">Move Div</button>
         
         <script type="text/javascript">        
          
+         //creates an alert after the page has been open for 5 seconds
          alert('Welcome to Lab 8.');
          
+         //creating variables based on button id
          var element = document.getElementById('content');
          var fadeIn = document.getElementById('fadein');
          var fadeOut = document.getElementById('fadeout');
          var moveDiv = document.getElementById('movediv');
          
+         //when the button is clicked, the functions are accessed by these
+         //event listeners
          fadeOut.addEventListener('click', fadeOutTimer);
          fadeIn.addEventListener('click', fadeInTimer);
-         moveDiv.addEventListener('click', moveLeftFunction);
-                  
+         moveDiv.addEventListener('click', moveTimer);
+         
+         //necessary variables declared
          var fading = 100;
          var fadeTimer;
          var divPosition = 10;
          
+         //the logic behind the fading out to no opacity
          function fadeOutFunction(){
              fading = fading - 10;
              element.style.opacity = fading/100;
@@ -44,10 +55,12 @@ and open the template in the editor.
              }
          }
          
+         //starting the fading out process
          function fadeOutButton(){
              setInterval (fadeOutFunction, 100);
          }
          
+         //keeps the div fading out to no opacity
          function fadeOutTimer(){
              clearInterval (fadeTimer);
              
@@ -57,6 +70,7 @@ and open the template in the editor.
              console.log('Fade Out Timer Started');
          }
          
+         //the logic behind the fading in to full opacity
          function fadeInFunction(){
              fading = fading + 10;
              element.style.opacity = fading/100;
@@ -68,10 +82,12 @@ and open the template in the editor.
              }
          }
          
+         //starting the fading in process
          function fadeInButton(){
              setInterval (fadeInFunction, 0);
          }
          
+         //keeps the div fading back to full opacity
          function fadeInTimer(){
              clearInterval (fadeTimer);
              
@@ -81,12 +97,29 @@ and open the template in the editor.
              console.log('Fade In Timer Started');
          } 
          
+         //the logic behind moving across the screen
          function moveLeftFunction(){
+             console.log ('Left Function enabled');
              
              divPosition = divPosition + 10;
              element.style.left = divPosition + "px";
              
+             if (divPosition <= 0){
+                 clearInterval (fadeTimer);
+             }
+             
          }
+         
+         //keeps the div moving across the screen
+         function moveTimer(){
+             clearInterval (fadeTimer);
+             
+             divPosition = 0;
+             fadeTimer = setInterval (moveLeftFunction, 100);
+             
+             console.log ("Move Left Timer Started");
+         }
+         
         </script>
     </body>
 </html>
